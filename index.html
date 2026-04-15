@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShipYard — Private AI Platform for UAE Enterprise</title>
+<meta name="description" content="Your company's intelligence. Private by design. AI platform built for UAE and KSA organisations — open-source models, your infrastructure, your data never leaves.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #060610;
+    --ink2: #0D0D1A;
+    --card: #10101E;
+    --gold: #C9A84C;
+    --gold2: #E8C96B;
+    --gold3: #F5E4A8;
+    --white: #F0EEE8;
+    --muted: #7A7A8A;
+    --line: #1E1E30;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(6,6,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gold2);
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--ink) !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold2) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 60%, rgba(201,168,76,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 600;
+    line-height: 1.1;
+    max-width: 900px;
+    margin-bottom: 2rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold2);
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0.9rem 2.2rem;
+    border-radius: 2px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+  .btn-ghost {
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 0.9rem 2.2rem;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    left: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 40px; height: 1px; background: var(--muted);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%,100% { width: 40px; opacity: 1; }
+    50% { width: 20px; opacity: 0.4; }
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 2.5rem 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: var(--gold2);
+    line-height: 1;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section { padding: 7rem 4rem; }
+  .section-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .section-h {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 720px;
+    margin-bottom: 1.5rem;
+  }
+  .section-h em { color: var(--gold2); font-style: italic; }
+  .section-sub {
+    color: var(--muted);
+    max-width: 560px;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 4rem;
+  }
+  .divider {
+    height: 1px;
+    background: var(--line);
+    margin: 0 4rem;
+  }
+
+  /* PROBLEM */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+  .problem-cell {
+    background: var(--ink2);
+    padding: 2.5rem;
+    transition: background 0.3s;
+  }
+  .problem-cell:hover { background: var(--card); }
+  .problem-icon {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 0.9rem;
+  }
+  .problem-cell h3 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+  }
+  .problem-cell p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+
+  /* HOW IT WORKS */
+  .how-bg { background: var(--ink2); }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+  .step { position: relative; }
+  .step::after {
+    content: '';
+    position: absolute;
+    top: 1.8rem;
+    right: -1rem;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+  .step:last-child::after { display: none; }
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: rgba(201,168,76,0.25);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+  .step h3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .step p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+  /* AGENTS */
+  .agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+  .agent-card {
+    background: var(--card);
+    padding: 2rem 2rem 1.8rem;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .agent-card:hover { background: var(--ink2); }
+  .agent-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+  .agent-card h3 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold2);
+    margin-bottom: 0.6rem;
+  }
+  .agent-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+  .agent-capabilities {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .cap-tag {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--gold);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* SECURITY */
+  .security-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .security-features { display: flex; flex-direction: column; gap: 2rem; margin-top: 2rem; }
+  .sec-feat {
+    display: flex;
+    gap: 1.2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .sec-feat:last-child { border-bottom: none; }
+  .sec-icon {
+    width: 36px; height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+  }
+  .sec-feat h4 {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .sec-feat p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+  .security-visual {
+    position: relative;
+    padding: 3rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-top: 2rem;
+  }
+  .arch-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .arch-tier {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: border-color 0.3s;
+  }
+  .arch-tier:hover { border-color: rgba(201,168,76,0.3); }
+  .arch-tier-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  .arch-tier-name {
+    font-size: 0.8rem;
+    color: var(--white);
+    font-weight: 500;
+    flex: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .arch-tier-tag {
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .arch-boundary {
+    border: 1px dashed rgba(201,168,76,0.3);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .arch-boundary-label {
+    font-size: 0.68rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+  .pricing-card {
+    background: var(--card);
+    padding: 3rem 2.5rem;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .pricing-card:hover { background: var(--ink2); }
+  .pricing-card.featured {
+    background: var(--ink2);
+    border-top: 2px solid var(--gold);
+  }
+  .pricing-tier {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold2);
+    margin-bottom: 1.5rem;
+  }
+  .pricing-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .pricing-amount sup { font-size: 1.2rem; vertical-align: super; }
+  .pricing-period {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .pricing-features { list-style: none; }
+  .pricing-features li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    line-height: 1.5;
+  }
+  .pricing-features li::before {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+  }
+  .pricing-cta {
+    margin-top: 2.5rem;
+  }
+  .pricing-cta a {
+    display: block;
+    text-align: center;
+    padding: 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .pricing-cta a:hover { border-color: var(--gold); color: var(--gold); }
+  .pricing-card.featured .pricing-cta a {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .pricing-card.featured .pricing-cta a:hover { background: var(--gold2); border-color: var(--gold2); }
+
+  /* WAITLIST / SIGNUP */
+  .signup-section {
+    background: var(--card);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    text-align: center;
+    padding: 7rem 4rem;
+  }
+  .signup-section .section-h { margin: 0 auto 1.2rem; text-align: center; }
+  .signup-section .section-sub { margin: 0 auto 3rem; text-align: center; }
+  .signup-form {
+    display: flex;
+    gap: 0;
+    max-width: 520px;
+    margin: 0 auto;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .signup-form input {
+    flex: 1;
+    background: var(--ink);
+    border: none;
+    padding: 1rem 1.5rem;
+    color: var(--white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+  }
+  .signup-form input::placeholder { color: var(--muted); }
+  .signup-form button {
+    background: var(--gold);
+    border: none;
+    padding: 1rem 2rem;
+    color: var(--ink);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .signup-form button:hover { background: var(--gold2); }
+  .signup-note {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .success-msg {
+    display: none;
+    color: var(--gold2);
+    font-size: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy { font-size: 0.78rem; color: var(--muted); }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero, section { padding: 5rem 1.5rem; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); padding: 2rem 1.5rem; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .step::after { display: none; }
+    .security-layout, .pricing-grid { grid-template-columns: 1fr; }
+    .problem-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+    .divider { margin: 0 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">SHIPYARD</a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#agents">Agents</a>
+    <a href="#security">Security</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#waitlist" class="nav-cta">Request pilot</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">UAE-Native AI Platform</div>
+  <h1>Your company's intelligence.<br><em>Private by design.</em></h1>
+  <p class="hero-sub">
+    ShipYard puts AI to work across your entire organisation — writing, coding, analysing, projecting — on your own infrastructure, inside Azure UAE North. Your data never leaves.
+  </p>
+  <div class="hero-actions">
+    <a href="#waitlist" class="btn-primary">Request a pilot</a>
+    <a href="#how" class="btn-ghost">See how it works</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar fade-in">
+  <div class="stat">
+    <span class="stat-num">7</span>
+    <span class="stat-label">Team agents included</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">0</span>
+    <span class="stat-label">Third-party model providers</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">UAE</span>
+    <span class="stat-label">Data residency, always</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">7</span>
+    <span class="stat-label">Days to pilot deployment</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="section-tag">The problem</div>
+  <h2 class="section-h fade-in">Every major AI tool sends your data <em>somewhere else.</em></h2>
+  <p class="section-sub fade-in">Your legal strategies, financial models, and product decisions sit on US or EU servers. Regulators across UAE and KSA are tightening data residency requirements. The risk is not theoretical.</p>
+  <div class="problem-grid fade-in">
+    <div class="problem-cell">
+      <div class="problem-icon">01</div>
+      <h3>Data residency risk</h3>
+      <p>ChatGPT, Copilot, and Gemini route queries through US and EU infrastructure. Under PDPL and emerging UAE regulations, this creates direct compliance exposure for regulated industries.</p>
+    </div>
+    <div class="problem-cell">
+      <div class="problem-icon">02</div>
+      <h3>Generic, not company-specific</h3>
+      <p>Off-the-shelf tools have no knowledge of your internal processes, your documents, your code, or your market context. Every user starts from zero, every time.</p>
+    </div>
+    <div class="problem-cell">
+      <div class="problem-icon">03</div>
+      <h3>One size fits no team</h3>
+      <p>Legal needs different outputs than Finance. Sales needs different context than Tech. A single shared AI assistant serves every team poorly instead of serving any team exceptionally.</p>
+    </div>
+    <div class="problem-cell">
+      <div class="problem-icon">04</div>
+      <h3>Your knowledge leaves with it</h3>
+      <p>Every query your team makes trains a model you do not own. Your intellectual property — your questions, your strategies, your data patterns — compound someone else's advantage.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="how-bg">
+  <div class="section-tag">How it works</div>
+  <h2 class="section-h fade-in">Intelligence that compounds <em>with every query.</em></h2>
+  <p class="section-sub fade-in">ShipYard builds a private knowledge base from your documents, trains each team agent to understand your context, and gets measurably smarter over time — without your data ever leaving your environment.</p>
+  <div class="steps fade-in">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Build your knowledge base</h3>
+      <p>Upload documents, connect your website, ingest your codebase. ShipYard processes and indexes everything into a private, encrypted knowledge store.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Assign your agents</h3>
+      <p>Each team receives a purpose-built AI agent pre-configured for their role. Legal, Finance, Sales, HR, Tech, Marketing, Leadership — each knowing its documents and its boundaries.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Ask, create and analyse</h3>
+      <p>Write and test code, model financial projections, draft strategy documents, review contracts, generate proposals. Every output grounded in your company's actual knowledge.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Stay private and compliant</h3>
+      <p>All AI inference runs inside Azure UAE North. Audit logs, role-based access control, PDPL-ready data handling. Every query traceable, every answer citable.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AGENTS -->
+<section id="agents">
+  <div class="section-tag">Team agents</div>
+  <h2 class="section-h fade-in">Seven agents. <em>One platform.</em> Every team covered.</h2>
+  <p class="section-sub fade-in">Each agent is purpose-built for its team's workflow — configured with the right system behaviour, the right document access, and the right output format for that team's daily work.</p>
+  <div class="agents-grid fade-in">
+    <div class="agent-card">
+      <div class="agent-dot"></div>
+      <h3>Leadership</h3>
+      <p>Strategic briefings, board summaries, scenario planning grounded in your actual financial and operational data.</p>
+      <div class="agent-capabilities">
+        <span class="cap-tag">Briefings</span>
+        <span class="cap-tag">Scenarios</span>
+        <span class="cap-tag">Summaries</span>
+      </div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-dot"></div>
+      <h3>Sales</h3>
+      <p>Personalised proposals, objection handling, email drafts grounded in your product knowledge and deal history.</p>
+      <div class="agent-capabilities">
+        <span class="cap-tag">Proposals</span>
+        <span class="cap-tag">Outreach</span>
+        <span class="cap-tag">Objection handling</span>
+      </div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-dot"></div>
+      <h3>Legal</h3>
+      <p>Memos, risk flags, policy answers and contract review. Conservative by design — always cites sources, never speculates.</p>
+      <div class="agent-capabilities">
+        <span class="cap-tag">Memos</span>
+        <span class="cap-tag">Risk flags</span>
+        <span class="cap-tag">Contract review</span>
+      </div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-dot"></div>
+      <h3>Finance</h3>
+      <p>Revenue projections, variance analysis, financial modelling. Precise, caveated, and grounded in your actual data.</p>
+      <div class="agent-capabilities">
+        <span class="cap-tag">Projections</span>
+        <span class="cap-tag">Analysis</span>
+        <span class="cap-tag">Modelling</span>
+      </div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-dot"></div>
+      <h3>HR</h3>
+      <p>Policy answers, letter templates, onboarding support. Grounded in your actual HR policies and employment framework.</p>
+      <div class="agent-capabilities">
+        <span class="cap-tag">Policy Q&A</span>
+        <span class="cap-tag">Templates</span>
+        <span class="cap-tag">Onboarding</span>
+      </div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-dot"></div>
+      <h3>Tech / CTO</h3>
+      <p>Code generation, debugging, architecture decisions. Understands your actual codebase, your stack, and your conventions.</p>
+      <div class="agent-capabilities">
+        <span class="cap-tag">Code generation</span>
+        <span class="cap-tag">Debugging</span>
+        <span class="cap-tag">Architecture</span>
+      </div>
+    </div>
+    <div class="agent-card">
+      <div class="agent-dot"></div>
+      <h3>Marketing</h3>
+      <p>Copy, positioning, content briefs in your brand voice — trained on your actual brand guidelines and content history.</p>
+      <div class="agent-capabilities">
+        <span class="cap-tag">Copy</span>
+        <span class="cap-tag">Positioning</span>
+        <span class="cap-tag">Content briefs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECURITY -->
+<section id="security" class="how-bg">
+  <div class="section-tag">Privacy and security</div>
+  <div class="security-layout">
+    <div>
+      <h2 class="section-h fade-in">Sovereign AI. <em>No exceptions.</em></h2>
+      <p class="section-sub fade-in">ShipYard was built for organisations where data privacy is non-negotiable. Every architectural decision was made with UAE data residency requirements as the starting constraint, not an afterthought.</p>
+      <div class="security-features fade-in">
+        <div class="sec-feat">
+          <div class="sec-icon">01</div>
+          <div>
+            <h4>Open-source models only</h4>
+            <p>No OpenAI. No Anthropic. No Microsoft. All AI inference runs on open-source models hosted on your own infrastructure inside Azure UAE North. No third-party model provider has access to your queries.</p>
+          </div>
+        </div>
+        <div class="sec-feat">
+          <div class="sec-icon">02</div>
+          <div>
+            <h4>Client namespace isolation</h4>
+            <p>Every client's knowledge base lives in a dedicated, isolated namespace. No cross-client data retrieval is architecturally possible at the infrastructure level.</p>
+          </div>
+        </div>
+        <div class="sec-feat">
+          <div class="sec-icon">03</div>
+          <div>
+            <h4>Full audit trail</h4>
+            <p>Every query, every document retrieved, every response — logged, timestamped, and exportable to your SIEM. Complete auditability for regulated industries.</p>
+          </div>
+        </div>
+        <div class="sec-feat">
+          <div class="sec-icon">04</div>
+          <div>
+            <h4>On-prem option for enterprise</h4>
+            <p>Enterprise clients who cannot accept any external dependency receive a full Docker deployment stack for air-gapped installation on their own infrastructure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="security-visual fade-in">
+        <div class="arch-label">Architecture — Azure UAE North</div>
+        <div class="arch-tier">
+          <div class="arch-tier-dot"></div>
+          <div class="arch-tier-name">Client web application</div>
+          <div class="arch-tier-tag">TLS 1.3 + MFA</div>
+        </div>
+        <div class="arch-tier">
+          <div class="arch-tier-dot"></div>
+          <div class="arch-tier-name">Orchestration layer</div>
+          <div class="arch-tier-tag">Query routing + evaluation</div>
+        </div>
+        <div class="arch-tier">
+          <div class="arch-tier-dot"></div>
+          <div class="arch-tier-name">RAG retrieval engine</div>
+          <div class="arch-tier-tag">Namespace-isolated</div>
+        </div>
+        <div class="arch-boundary">
+          <div class="arch-boundary-label">Client data boundary</div>
+          <div class="arch-tier" style="background:rgba(201,168,76,0.04)">
+            <div class="arch-tier-dot"></div>
+            <div class="arch-tier-name">Client knowledge base</div>
+            <div class="arch-tier-tag">Qdrant · AES-256</div>
+          </div>
+          <div class="arch-tier" style="background:rgba(201,168,76,0.04)">
+            <div class="arch-tier-dot"></div>
+            <div class="arch-tier-name">Document storage</div>
+            <div class="arch-tier-tag">Azure Blob · RBAC</div>
+          </div>
+          <div class="arch-tier" style="background:rgba(201,168,76,0.04)">
+            <div class="arch-tier-dot"></div>
+            <div class="arch-tier-name">AI inference</div>
+            <div class="arch-tier-tag">Llama / Qwen / DeepSeek-R1</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:1.5rem;font-size:0.72rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase">
+          All data resident in UAE North &mdash; PDPL compliant
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-tag">Investment</div>
+  <h2 class="section-h fade-in">Simple pricing. <em>No per-token surprises.</em></h2>
+  <p class="section-sub fade-in">All plans include every team agent, the full knowledge base pipeline, and UAE-resident infrastructure. Scale up as your organisation grows.</p>
+  <div class="pricing-grid fade-in">
+    <div class="pricing-card">
+      <div class="pricing-tier">Growth</div>
+      <div class="pricing-amount"><sup>GBP </sup>7,500</div>
+      <div class="pricing-period">per month &nbsp;|&nbsp; 25 seats</div>
+      <ul class="pricing-features">
+        <li>All 7 team agents included</li>
+        <li>Knowledge base up to 10 GB</li>
+        <li>Open-source AI models (Llama 3.3 70B)</li>
+        <li>Cloud deployment, UAE North</li>
+        <li>Full audit logging</li>
+        <li>Email support &mdash; 48hr SLA</li>
+      </ul>
+      <div class="pricing-cta"><a href="#waitlist">Request a pilot</a></div>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-tier">Scale</div>
+      <div class="pricing-amount"><sup>GBP </sup>15,000</div>
+      <div class="pricing-period">per month &nbsp;|&nbsp; 100 seats</div>
+      <ul class="pricing-features">
+        <li>Everything in Growth</li>
+        <li>Knowledge base up to 50 GB</li>
+        <li>Hybrid AI (client selects model per agent)</li>
+        <li>Custom agent builder</li>
+        <li>SSO integration (Azure AD, Google)</li>
+        <li>Priority support + dedicated Slack channel</li>
+      </ul>
+      <div class="pricing-cta"><a href="#waitlist">Request a pilot</a></div>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-tier">Enterprise</div>
+      <div class="pricing-amount"><sup>GBP </sup>30,000</div>
+      <div class="pricing-period">per month &nbsp;|&nbsp; Unlimited seats</div>
+      <ul class="pricing-features">
+        <li>Everything in Scale</li>
+        <li>Unlimited knowledge base storage</li>
+        <li>On-prem Docker deployment option</li>
+        <li>Customer-managed encryption keys</li>
+        <li>Dedicated infrastructure (zero shared)</li>
+        <li>Dedicated implementation engineer</li>
+      </ul>
+      <div class="pricing-cta"><a href="#waitlist">Request a pilot</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SIGNUP -->
+<section id="waitlist" class="signup-section">
+  <div class="section-tag" style="justify-content:center">Request a pilot</div>
+  <h2 class="section-h">Ready to keep your intelligence <em>yours?</em></h2>
+  <p class="section-sub">Pilots available within 7 days. UAE-native deployment from day one. Leave your email and we will schedule a conversation within 24 hours.</p>
+  <div class="signup-form" id="signupForm">
+    <input type="email" id="emailInput" placeholder="your@company.ae" autocomplete="email">
+    <button onclick="handleSignup()">Request pilot</button>
+  </div>
+  <div class="success-msg" id="successMsg">
+    Thank you. We will be in touch within 24 hours to schedule your pilot conversation.
+  </div>
+  <p class="signup-note">No commitment required. UAE and KSA organisations only at this stage.</p>
+</section>
+
+<footer>
+  <div class="footer-logo">SHIPYARD</div>
+  <div class="footer-links">
+    <a href="#how">How it works</a>
+    <a href="#agents">Agents</a>
+    <a href="#security">Security</a>
+    <a href="#pricing">Pricing</a>
+    <a href="mailto:hello@shipyard.ai">hello@shipyard.ai</a>
+  </div>
+  <div class="footer-copy">2025 ShipYard. UAE-native AI.</div>
+</footer>
+
+<script>
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Signup handler
+  function handleSignup() {
+    const email = document.getElementById('emailInput').value;
+    if (!email || !email.includes('@')) {
+      document.getElementById('emailInput').style.borderBottom = '1px solid #C9A84C';
+      return;
+    }
+    document.getElementById('signupForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+    // In production: POST to /api/waitlist
+  }
+
+  document.getElementById('emailInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleSignup();
+  });
+</script>
+</body>
+</html>
