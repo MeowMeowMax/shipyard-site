@@ -39,11 +39,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .btn-primary:hover{background:var(--blue-d);transform:translateY(-1px);}
 .btn-ghost{background:white;color:var(--slate);border:1px solid var(--border);padding:0.85rem 2rem;border-radius:8px;font-size:0.95rem;font-weight:400;text-decoration:none;transition:border-color 0.2s,color 0.2s;display:inline-block;}
 .btn-ghost:hover{border-color:var(--blue);color:var(--blue);}
-.stats-bar{background:var(--navy);padding:3rem 4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;}
+.stats-bar{background:#D4A843;padding:3rem 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
 .stat{text-align:center;}
-.stat-num{font-family:'DM Serif Display',serif;font-size:2.8rem;color:white;display:block;margin-bottom:0.3rem;}
-.stat-num em{font-style:normal;color:var(--gold);}
-.stat-label{font-size:0.8rem;color:#94A3B8;letter-spacing:0.06em;text-transform:uppercase;}
+.stat-num{font-family:'DM Serif Display',serif;font-size:2.8rem;color:var(--navy);display:block;margin-bottom:0.3rem;}
+.stat-num em{font-style:normal;color:var(--navy);}
+.stat-label{font-size:0.8rem;color:var(--navy);letter-spacing:0.06em;text-transform:uppercase;opacity:0.75;}
 section{padding:6rem 4rem;}
 .section-tag{font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;}
 .section-tag::before{content:'';display:block;width:20px;height:1.5px;background:var(--blue);}
@@ -160,7 +160,6 @@ footer{padding:3rem 4rem;background:var(--light);border-top:1px solid var(--bord
   <div class="stat"><span class="stat-num">7</span><span class="stat-label"><span class="en">Team agents included</span><span class="ar">وكلاء فريق مضمّنون</span></span></div>
   <div class="stat"><span class="stat-num"><em>0</em></span><span class="stat-label"><span class="en">Third-party model providers</span><span class="ar">مزودو نماذج خارجيون</span></span></div>
   <div class="stat"><span class="stat-num">UAE</span><span class="stat-label"><span class="en">Data residency, always</span><span class="ar">إقامة البيانات، دائماً</span></span></div>
-  <div class="stat"><span class="stat-num">7</span><span class="stat-label"><span class="en">Days to pilot deployment</span><span class="ar">أيام للنشر التجريبي</span></span></div>
 </div>
 
 <div class="divider"></div>
@@ -293,7 +292,7 @@ footer{padding:3rem 4rem;background:var(--light);border-top:1px solid var(--bord
 <section id="waitlist" class="signup-section">
   <div class="section-tag"><span class="en">Request a pilot</span><span class="ar">طلب تجربة</span></div>
   <h2 class="section-h"><span class="en">Ready to keep your intelligence <em>yours?</em></span><span class="ar">هل أنت مستعد للحفاظ على <em>ذكاءك ملكاً لك؟</em></span></h2>
-  <p class="section-sub"><span class="en">Pilots available within 7 days. UAE-native deployment from day one. Leave your email and we will be in touch within 24 hours.</span><span class="ar">التجارب متاحة خلال 7 أيام. نشر إماراتي من اليوم الأول. اترك بريدك الإلكتروني وسنتواصل معك خلال 24 ساعة.</span></p>
+  <p class="section-sub"><span class="en">Pilots available now. UAE-native deployment from day one. Leave your email and we will be in touch within 24 hours.</span><span class="ar">التجارب متاحة الآن. نشر إماراتي من اليوم الأول. اترك بريدك الإلكتروني وسنتواصل معك خلال 24 ساعة.</span></p>
   <div class="signup-form" id="signupForm">
     <input type="email" id="emailInput" placeholder="your@company.ae" autocomplete="email">
     <button onclick="handleSignup()"><span class="en-inline">Request pilot</span><span class="ar-inline">طلب تجربة</span></button>
