@@ -14,9 +14,12 @@
 html{scroll-behavior:smooth;}
 body{background:var(--white);color:var(--slate);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.7;font-size:16px;}
 ::selection{background:var(--blue-m);color:var(--navy);}
+.en{display:block;}.en-inline{display:inline;}.ar{display:none;}.ar-inline{display:none;}
+[dir="rtl"] .en{display:none;}[dir="rtl"] .en-inline{display:none;}
+[dir="rtl"] .ar{display:block;}[dir="rtl"] .ar-inline{display:inline;}
 [dir="rtl"] .hero-tag::before,[dir="rtl"] .section-tag::before{display:none;}
 [dir="rtl"] .nav-links{flex-direction:row-reverse;}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 4rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#ffffff;border-bottom:1px solid var(--border);padding:0 4rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{font-family:'DM Serif Display',serif;font-size:1.4rem;color:var(--navy);text-decoration:none;letter-spacing:0.04em;}
 .nav-logo span{color:var(--blue);}
 .nav-links{display:flex;gap:1.8rem;align-items:center;}
@@ -132,7 +135,7 @@ footer{padding:3rem 4rem;background:var(--light);border-top:1px solid var(--bord
 </head>
 <body>
 <nav>
-  <a href="#" class="nav-logo"><img src="yarbuu-logo.png" alt="Yarbuu" style="height:36px;width:auto;display:block;" /></a>
+  <a href="#" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;"><img src="yarbuu-logo.png" alt="Yarbuu" style="height:36px;width:auto;display:block;" /><span style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--navy);letter-spacing:0.04em;">Yarbuu</span></a>
   <div class="nav-links">
     <a href="#how"><span class="en-inline">How it works</span><span class="ar-inline">كيف يعمل</span></a>
     <a href="#agents"><span class="en-inline">Work streams</span><span class="ar-inline">مجالات العمل</span></a>
@@ -286,15 +289,15 @@ footer{padding:3rem 4rem;background:var(--light);border-top:1px solid var(--bord
         <div style="color:white;font-size:1.05rem;font-weight:600;margin-bottom:0.8rem;"><span class="en">Q2 2026 launch met. Five regulatory frameworks. Zero external lawyers.</span></div>
         <div style="color:#CBD5E1;font-size:0.85rem;line-height:1.6;"><span class="en">A child safety technology platform needed compliance documentation across five distinct child data protection frameworks simultaneously. Yarbuu's Legal and Tech work streams produced everything required — without a single external legal engagement.</span></div>
       </div>
-      <div style="background:rgba(217,119,6,0.12);border:1px solid rgba(217,119,6,0.3);border-radius:12px;padding:1.6rem;">
-        <div style="color:#FCD34D;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem;">Faith-Based Technology  ·  Market Expansion</div>
-        <div style="color:white;font-size:1.05rem;font-weight:600;margin-bottom:0.8rem;"><span class="en">Major new market deal signed. AED 1,809,000 in annual efficiency.</span></div>
-        <div style="color:#CBD5E1;font-size:0.85rem;line-height:1.6;"><span class="en">A personalised multi-faith platform needed commercial, legal, and financial documentation for a major new market entry. Four Yarbuu work streams deployed simultaneously. The deal was signed. Documentation used directly in negotiations without revision.</span></div>
-      </div>
       <div style="background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.3);border-radius:12px;padding:1.6rem;">
-        <div style="color:#C4B5FD;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem;">Gaming Platform  ·  B2B Licensing</div>
-        <div style="color:white;font-size:1.05rem;font-weight:600;margin-bottom:0.8rem;"><span class="en">AED 1M+ multi-year B2B licensing deal secured.</span></div>
-        <div style="color:#CBD5E1;font-size:0.85rem;line-height:1.6;"><span class="en">A gaming technology platform needed to translate consumer traction into enterprise contracts. Yarbuu's Sales, Legal, Tech, and Marketing work streams produced the full commercial and legal documentation pack. The licensing deal closed over AED 1,000,000.</span></div>
+        <div style="color:#C4B5FD;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem;">Gaming Technology  ·  Platform Architecture and IP</div>
+        <div style="color:white;font-size:1.05rem;font-weight:600;margin-bottom:0.8rem;"><span class="en">Patent-pending platform built. Sovereign data architecture. AED 1M+ B2B licensing secured.</span></div>
+        <div style="color:#CBD5E1;font-size:0.85rem;line-height:1.6;"><span class="en">A gaming technology platform needed to build a proprietary trading and performance card system with sovereign data handling, complex real-time stat pipelines, and enterprise-grade partner SDK architecture. Yarbuu's Tech, Legal, and Sales work streams simultaneously designed the system, filed the IP, structured the licensing framework, and produced the B2B partner documentation. Deal closed at over AED 1,000,000 multi-year. All technology is 100% owned by the client.</span></div>
+      </div>
+      <div style="background:rgba(217,119,6,0.12);border:1px solid rgba(217,119,6,0.3);border-radius:12px;padding:1.6rem;">
+        <div style="color:#FCD34D;font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem;">Multi-Market Platform  ·  Commercial Expansion</div>
+        <div style="color:white;font-size:1.05rem;font-weight:600;margin-bottom:0.8rem;"><span class="en">New market deal signed. AED 1,809,000 annual efficiency. Four work streams deployed simultaneously.</span></div>
+        <div style="color:#CBD5E1;font-size:0.85rem;line-height:1.6;"><span class="en">A platform operating across multiple markets needed commercial, legal, financial, and HR documentation for a major new market entry — simultaneously, across four distinct legal systems. Yarbuu deployed four work streams in parallel. The deal closed. All documentation went directly into negotiations without revision. No external lawyers. No consultants.</span></div>
       </div>
     </div>
 
@@ -361,15 +364,14 @@ footer{padding:3rem 4rem;background:var(--light);border-top:1px solid var(--bord
 </section>
 
 <footer>
-  <div class="footer-logo">SHIPYARD</div>
+  <div class="footer-logo" style="display:flex;align-items:center;gap:10px;"><img src="yarbuu-logo.png" alt="Yarbuu" style="height:32px;width:auto;" /><span>Yarbuu</span></div>
   <div class="footer-links">
     <a href="#how"><span class="en-inline">How it works</span><span class="ar-inline">كيف يعمل</span></a>
     <a href="#agents"><span class="en-inline">Specialists</span><span class="ar-inline">التخصصات</span></a>
     <a href="#security"><span class="en-inline">Security</span><span class="ar-inline">الأمان</span></a>
     <a href="#pricing"><span class="en-inline">Pricing</span><span class="ar-inline">الأسعار</span></a>
-    <a href="mailto:hello@shipyard.ai">hello@shipyard.ai</a>
   </div>
-  <div class="footer-copy"><span class="en">2025 Yarbuu. Patent Pending. UAE-native AI.</span><span class="ar">2025 Yarbuu. ذكاء اصطناعي إماراتي.</span></div>
+  <div class="footer-copy"><span class="en">2026 Yarbuu. Patent Pending. UAE-native AI.</span><span class="ar">2026 Yarbuu. ذكاء اصطناعي إماراتي.</span></div>
 </footer>
 
 <script>
